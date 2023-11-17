@@ -1,0 +1,43 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+--Tabla Usuario
+CREATE TABLE usuario (
+	-- Datos de la tabla Usuario
+	usuId UUID DEFAULT uuid_generate_v4 () NOT NULL,
+	usuCorreo VARCHAR(100) UNIQUE NOT NULL,
+	usuContrasena VARCHAR(255) UNIQUE,
+	PRIMARY KEY(UsuId)
+);
+
+--Tabla Estudiante
+CREATE TABLE estudiante (
+	-- Datos de la tabla Usuario
+	estId UUID DEFAULT uuid_generate_v4 () NOT NULL,
+	estNombre VARCHAR(100),
+	estApellido VARCHAR(100),
+    estUsuario UUID,
+	PRIMARY KEY(estId),
+    FOREIGN KEY(estUsuario) REFERENCES Usuario(usuId)
+);
+
+--Tabla Graduado
+CREATE TABLE graduado (
+	-- Datos de la tabla Usuario
+	graId UUID DEFAULT uuid_generate_v4 () NOT NULL,
+	graNombre VARCHAR(100),
+	graApellido VARCHAR(100),
+    graUsuario UUID,
+	PRIMARY KEY(graId),
+    FOREIGN KEY(graUsuario) REFERENCES Usuario(usuId)
+);
+
+--Tabla Empresa
+CREATE TABLE empresa (
+	-- Datos de la tabla Usuario
+	empId UUID DEFAULT uuid_generate_v4 () NOT NULL,
+	empNombre VARCHAR(100),
+	empApellido VARCHAR(100),
+    empUsuario UUID,
+	PRIMARY KEY(empId),
+    FOREIGN KEY(empUsuario) REFERENCES Usuario(usuId)
+);
