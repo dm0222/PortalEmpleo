@@ -22,3 +22,5 @@ router.put('/perfil', async(req,res,next)=>{
         next(error);
     }
 });
+
+module.exports = router;

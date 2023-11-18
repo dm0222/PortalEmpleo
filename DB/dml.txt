@@ -5,8 +5,10 @@ CREATE TABLE usuario (
 	-- Datos de la tabla Usuario
 	usuId UUID DEFAULT uuid_generate_v4 () NOT NULL,
 	usuCorreo VARCHAR(100) UNIQUE NOT NULL,
-	usuContrasena VARCHAR(255) UNIQUE,
-	PRIMARY KEY(UsuId)
+	usuContrasena VARCHAR(255) NOT NULL,
+	usuiv VARCHAR(32) NOT NULL,
+	usuTipo VARCHAR(32) NOT NULL,
+	PRIMARY KEY(usuId)
 );
 
 --Tabla Estudiante
@@ -36,7 +38,6 @@ CREATE TABLE empresa (
 	-- Datos de la tabla Usuario
 	empId UUID DEFAULT uuid_generate_v4 () NOT NULL,
 	empNombre VARCHAR(100),
-	empApellido VARCHAR(100),
     empUsuario UUID,
 	PRIMARY KEY(empId),
     FOREIGN KEY(empUsuario) REFERENCES Usuario(usuId)

@@ -6,6 +6,14 @@ class estudiante {
         this.pool.on('error', (err) => console.log(err));
     }
 
+    async createProfile(Carrera,Experiencia,Habilidades) {
+
+    }
+
+    async editProfile(Carrera,Experiencia,Habilidades){
+        
+    }
+
 }
 
 module.exports = estudiante;
